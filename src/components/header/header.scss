@@ -1,0 +1,55 @@
+.top{
+    display:flex !important;
+    justify-content: space-between !important;
+    font-size: larger;
+    &__left{
+        display: flex;
+        cursor: pointer;
+        &--control{
+            margin-right: 10px;
+        }
+    }
+    &__right{
+        position: relative;
+        display:flex;
+        div{
+            cursor: pointer;
+        }
+        &--name{
+            margin: 0 10px;
+        }
+        &--image{
+            margin-right: 5px;
+            img{
+                border-radius: 100%;
+            }
+        }
+        .top_right__overflow{   
+            position: absolute;
+            top:100%;
+            background-color: white;
+            border:1px rgba(207, 200, 200, 0.736) solid;
+            display:none;
+            &--item{
+                padding:10px 14px;
+                border-bottom: 1px rgba(207, 200, 200, 0.736) solid;
+                i{
+                    margin-right: 5px;
+                }
+                a{
+                    font-size: 14px;
+                    color: black;
+                    text-decoration: none;
+                }
+                &:hover{
+                    background-color: rgba(243, 234, 234, 0.578);
+                }
+            }
+            &--show{
+                display:block !important;
+                z-index:100;
+
+            }
+        }
+    }
+}

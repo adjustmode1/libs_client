@@ -1,0 +1,50 @@
+.main{
+    padding:10px 5px;
+    width:100%;
+    min-height: calc(100vh - 61px);
+    max-height: 100%;
+    position: relative !important;
+    transition: 1s;
+    animation-timing-function: ease;
+    background-color: #f2f2f2;
+    overflow: scroll;
+    &::-webkit-scrollbar{
+        display:none;
+    }
+    .search_bar{
+        margin:auto 50%;
+        transform: translateX(-50%);
+        span{
+            text-align: center;
+            font-size: 0.5em !important;
+            display: block;
+            margin:5px 0;
+        }
+        &__input{
+            display: flex;
+            border: 1px rgba(70, 59, 59, 0.353) solid;
+            overflow: hidden;
+            border-radius: 15px;
+            padding:2px 4px;
+            input{                
+                margin:0;
+                border:0;
+                outline:0;
+                padding:2px 4px;
+                background-color: rgba(255, 255, 255, 0.164);
+                width:80%;
+            }
+            button{
+                width:20%;
+                margin:0;
+                border:none;
+                outline: none;
+                padding:5px;
+            }
+        }
+    }
+    .main_container{    
+        padding:10px;
+        width:100%;
+    }
+}
