@@ -7,18 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter} from 'react-router-dom';
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
-
+import {CookiesProvider} from 'react-cookie';
 import {myReducer} from './reducers/index';
 let store = createStore(myReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+      <CookiesProvider>
       <Provider store={store}>
        <BrowserRouter>
            <App />
        </BrowserRouter>
       </Provider>
+      </CookiesProvider>
   </React.StrictMode>
 );
 

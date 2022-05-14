@@ -5,7 +5,6 @@ if(localStorage.getItem('nav')){
     init = JSON.parse(localStorage.getItem('nav'))
 }else{
     localStorage.setItem('nav',false)
-    init = false;
 }
 
 
