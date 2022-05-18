@@ -11,6 +11,7 @@ import Showinfo from "./pages/info/showinfo";
 import Subject from "./pages/subject/subject";
 import Showsubject from "./pages/subject/showsubject";
 import RouteAuth from "./routeAuth";
+import Private from "./pages/private/private";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
                     <Route path="changepass" element={<Changepass/>}/>
                     <Route path="changeinfo" element={<Changeinfo/>}/>
                 </Route>
+                <Route path="/private" element={<Private/>}/>
                 <Route path='/subject' element={<Subject/>}>
                     <Route path="create" element={<Create/>}>
                         <Route path=":id" element={<Create/>}/>

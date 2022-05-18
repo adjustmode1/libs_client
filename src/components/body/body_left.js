@@ -23,7 +23,7 @@ const BodyLeft = (props) => {
                     <Link to="#"><i className="fa-solid fa-house"></i>Danh sách Lĩnh Vực</Link>
                 </div>
                 <div className="nav_right__control--item">
-                    <Link to="#"><i className="fa-solid fa-floppy-disk"></i>Trang cá nhân</Link>
+                    <Link to="/private"><i className="fa-solid fa-floppy-disk"></i>Trang cá nhân</Link>
                 </div>
                 <div className="nav_right__control--item nav_right__control--disable">
                     <i className="fa-solid fa-bookmark"></i>Quan Tâm

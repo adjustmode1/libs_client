@@ -52,7 +52,14 @@ const Changeinfo = () => {
         let newdata = setData();
         if(file.has('avatar')){
             if(send){
-                axios.post('/info/changeinfo',{data})
+                let path = '/info/changeinfo'
+                if(info.rule!==undefined){
+                    path = path + '_lecture';
+                }else{
+                    path = path + '_student';
+                }
+                console.log(path)
+                axios.post(path,{data})
                 .then(res=>{
                     console.log('send file....',res)
                         axios.post('/changeinfo_image',file,{
@@ -63,6 +70,7 @@ const Changeinfo = () => {
                         .then(res=>{
                             newdata.avatar = res.avatar;
                             console.log('send ok',res)
+                            dispath(actions.setInfoInit(newdata));
                         })
                         .catch(err=>{
                             console.log(err)
@@ -77,24 +85,31 @@ const Changeinfo = () => {
                 .then(res=>{
                     newdata.avatar = res.avatar;
                     console.log('send file ok',res)
+                    dispath(actions.setInfoInit(newdata));
                 })
                 .catch(err=>{
                     console.log(err)
                 })
                 alert('gửi file')
             }
-            dispath(actions.setInfoInit(newdata));
         }else{
             if(send){
-                axios.post('/info/changeinfo',data)
+                let path = '/info/changeinfo'
+                if(info.rule!==undefined){
+                    path = path + '_lecture';
+                }else{
+                    path = path + '_student';
+                }
+                console.log(path)
+                axios.post(path,data)
                 .then(res=>{
                     console.log(res)
+                    dispath(actions.setInfoInit(newdata));
                 })
                 .catch(err=>{
                     console.log(err)
                 })
                 alert('gửi data')
-                dispath(actions.setInfoInit(newdata));
             }else{
                 alert('không gửi')
             }
@@ -120,7 +135,9 @@ const Changeinfo = () => {
            (phone_number!==''&&info.phone_number===null)||
            (phone_number!==info.phone_number&&info.phone_number!==null)||
            (address!==''&&info.address===null)||
-           (address!==info.address&&info.address!==null)
+           (address!==info.address&&info.address!==null)||
+           (gmail!==''&&info.gmail===null)||
+           (gmail!==info.gmail&&info.gmail!==null)
            ){
             return true;
         }
