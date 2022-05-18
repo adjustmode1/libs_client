@@ -1,33 +1,36 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from '../../util/axios';
+import Topic from './topic';
 const Showsubject = () => {
+    const params = useParams();
+    const [topic,setTopic] = useState([]);
+    const [link,setLink] = useState([]);
+    useEffect(()=>{
+        let id = params.id;
+        console.log(id)
+        axios.get('/topic/list',{
+            params:{id:params.id}
+        })
+        .then(res=>{
+            console.log(res)
+            let arr = [];
+            res.data.forEach((el,index) => {
+                if(el.status===1){
+                    arr.push(<Topic key={index+'topic'} {...el}/>)
+                }
+            });
+            setTopic(arr)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    },[]);
   return (
-        <div className="subject__body subject--block">
-            <div className="subject__body--topic">
-                <div className="subject_body__topic--header">
-                    <p>Đây là chủ đề 1</p>
-                    <a href="#">Lưu</a>
-                </div>
-                
-                <div className="subject_body__topic--body">
-                    đây là mô tả nội dung
-                </div>
-                <div className="subject_body__topic--linker">
-                    đây là các file tài liệu đính kèm
-                </div>
-            </div>
-            <div className="subject__body--topic">
-                <div className="subject_body__topic--header">
-                    Đây là chủ đề 12
-                </div>
-                <div className="subject_body__topic--body">
-                    đây là mô tả nội dung
-                </div>
-                <div className="subject_body__topic--linker">
-                    đây là các file tài liệu đính kèm
-                </div>
-            </div>
-        </div> 
+        // {topic}
+        <>
+            {topic}
+        </>
   )
 }
 

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.scss';
 
 import Header  from '../../components/header/header';
 import BodyLeft  from '../../components/body/body_left';
 import {Outlet} from 'react-router-dom';
 import { Row,Col } from 'react-bootstrap';
-
 const Index = (props) => {
   return (
     <div>

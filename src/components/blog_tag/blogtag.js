@@ -7,13 +7,12 @@ const BlogtTag = (props) => {
         <div className="blog-card">
             <div className="meta">
             <div className="photo" style={{'backgroundImage': `url(${props.img||img})`}}></div>
-
             </div>
             <div className="description">
-            <h1>{props.title}</h1>
-            <Link to={""}><h2>{props.name_lecture}</h2></Link>
+            <h1>{props.title_subject}</h1>
+            <Link to={`/lecture/${props.id_lecture}`}><h2>{props.name_lecture}</h2></Link>
             <p className="read-more">
-                <a href="#">Read More</a>
+                <Link to={`/subject/${props.id_subject}`} >Read More</Link>
             </p>
             </div>
         </div>

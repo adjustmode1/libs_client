@@ -28,8 +28,10 @@ function App() {
                     <Route path="changeinfo" element={<Changeinfo/>}/>
                 </Route>
                 <Route path='/subject' element={<Subject/>}>
-                    <Route index element={<Showsubject/>} />
-                    <Route path="create" element={<Create/>}/>
+                    <Route path="create" element={<Create/>}>
+                        <Route path=":id" element={<Create/>}/>
+                    </Route>
+                    <Route path=":id" element={<Showsubject/>} />
                 </Route>
                 <Route path="*" element={<F404 />}/>
             </Route>

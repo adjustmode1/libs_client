@@ -53,5 +53,22 @@
             color: blue;
             cursor: pointer;
         }
+        .showFile{
+            th{
+                &:first-child{
+                    width:70%;
+                }
+                text-align: center;
+            }
+            tr{
+                td:last-child{
+                    text-align: right;
+                    color:red;
+                    i{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
 }

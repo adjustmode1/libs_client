@@ -23,6 +23,7 @@ const Login = (props) => {
     axios.post('/login',{username,password})
     .then(res=>{
       if(res.status===200){
+        console.log(res.data.token)
         setCookie('token_libs',res.data.token);
         dispath(actions_info.setInfoInit(res.data.data));
         setError(false);

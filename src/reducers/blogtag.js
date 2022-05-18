@@ -3,6 +3,7 @@ import * as action from '../constants/blogtag';
 let initblog = {
     total_page:1,
     index:1,
+    total_item:0,
     max_size:9,
     data:[]
 }
