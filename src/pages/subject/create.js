@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 import axios from '../../util/axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Alert, Table } from 'react-bootstrap';
+import { Alert, Button, Table } from 'react-bootstrap';
 import FormData from 'form-data';
 
 const Create = () => {
@@ -112,6 +112,7 @@ const Create = () => {
             }
             setNote('tạo thành công');
             setVariant('success');
+            nav('/subject/'+param.id);
         }else{
             setVariant('danger');
         }

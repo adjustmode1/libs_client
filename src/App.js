@@ -31,6 +31,10 @@ function App() {
                     <Route path="create" element={<Create/>}>
                         <Route path=":id" element={<Create/>}/>
                     </Route>
+                    <Route path="edit" element={<Showsubject/>}>
+                        <Route path=":id" element={<Showsubject/>}/>
+                        <Route path="update/:id" element={<Create/>}/>
+                    </Route>
                     <Route path=":id" element={<Showsubject/>} />
                 </Route>
                 <Route path="*" element={<F404 />}/>
