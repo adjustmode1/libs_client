@@ -27,7 +27,7 @@ const Header = (props) => {
   }
   const nav = useNavigate();
   const home = ()=>{
-        nav('/')
+        nav('/app')
   }
   return (
     <header>
@@ -43,12 +43,12 @@ const Header = (props) => {
                 <div className="top__right--arror" onClick={()=>{changestate()}}><i className="fa-solid fa-sort-down"></i></div>
                 <div className={classOverflow}>
                     <div className="top_right__overflow--item">
-                        <Link to="/person">
+                        <Link to="/app/person">
                             <i className="fa-solid fa-user"></i>Hồ sơ
                         </Link>
                     </div>
                     <div className="top_right__overflow--item">
-                        <Link to="/person/changepass"  >
+                        <Link to="/app/person/changepass"  >
                              <i className="fa-solid fa-lock"></i>Đổi Mật Khẩu 
                         </Link>
                     </div>

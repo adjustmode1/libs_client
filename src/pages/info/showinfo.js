@@ -7,7 +7,7 @@ const Showinfo = () => {
     let info = useSelector(state=>state.info);
     const navi = useNavigate();
     const update = ()=>{
-        navi('/person/changeinfo')
+        navi('/app/person/changeinfo')
     }
   return (
     <div className="row infor--block infor__body">

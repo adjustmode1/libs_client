@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { MDBDataTableV5 } from 'mdbreact';
 import { Badge, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import Tag from './tag';
-const Private = () => {
+import Tag from '../private/tag';
+const ShowSave = () => {
   const nav = useNavigate();
 const [datatable, setDatatable] = useState({
     columns: [
@@ -17,23 +17,14 @@ const [datatable, setDatatable] = useState({
         },
       },
       {
-        label: 'Trạng Thái',
-        field: 'status',
-        width: 150,
-        attributes: {
-          'aria-controls': 'DataTable',
-          'aria-label': 'Name',
-        },
-      },
-      {
         label: 'Ngày Tạo',
         field: 'createat',
         width: 270,
       },
       {
-        label: 'Chủ đề',
+        label: 'Thể Loại',
         field: 'field',
-        width: 200,
+        width: 270,
       },
       {
         label: 'doc',
@@ -60,10 +51,10 @@ const [datatable, setDatatable] = useState({
                 </div>,
       },
       {
-        name: 'Báo Khoa Học 2',
+        name: 'Trí Tuệ Nhân Tạo',
         status:<Badge className="text-white" variant="danger">Ẩn</Badge>,
         createat: '26-03-2018',
-        field:<Tag arr={['Trí Tuệ Nhân Tạo','Artificial intelligence']}/>,
+        field:<Tag arr={[]}/>,
         link: <Link to="#">bckh2.pdf</Link>,
         control: <div>
                     <Button variant='danger' onClick={()=>{
@@ -85,7 +76,7 @@ const [datatable, setDatatable] = useState({
       },
       {
         name: 'Báo Khoa Học 4',
-        status: <Badge className="text-white" variant="success">Hiện</Badge>,
+        status: <Badge className="text-white" variant="success" color='white'>Hiện</Badge>,
         createat: '25-03-2020',
         field:<Tag arr={['Trí Tuệ Nhân Tạo','Artificial intelligence']}/>,
         link: <Link to="#">bckh4.pdf</Link>,
@@ -105,9 +96,8 @@ const [datatable, setDatatable] = useState({
     nav('/admin/student/edit/'+id);
   }
   return <>
-        <Link to="/app/createprivate" className='btn btn-primary'>Thêm</Link>
         <MDBDataTableV5 hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={datatable} searchTop searchBottom={false}  />;
   </>
 }
 
-export default Private;
+export default ShowSave;

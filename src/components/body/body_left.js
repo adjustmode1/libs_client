@@ -10,23 +10,23 @@ const BodyLeft = (props) => {
     let subject = useSelector(state=>state.subject)||[];
     let tagSubject = subject.map((el,index)=>{
         return el.id_subject?   <div key={'tag_subject'+el.id+index} className="nav_right__control--item">
-                            <Link to={'/subject/'+el.id_subject}><i className="fa-solid fa-book"></i>{el.title_subject}</Link>
+                            <Link to={'/app/subject/'+el.id_subject}><i className="fa-solid fa-book"></i>{el.title_subject}</Link>
                         </div>:'';
     });
   return (
         <Col lg={2} className={classNav}>
             <div className="nav_right__control ">
                 <div className="nav_right__control--item nav_right__control--active">
-                    <Link  to='/'><i className="fa-solid fa-house"></i>HOME</Link>
+                    <Link  to='/app'><i className="fa-solid fa-house"></i>HOME</Link>
                 </div>
                 <div className="nav_right__control--item">
-                    <Link to="#"><i className="fa-solid fa-house"></i>Danh sách Lĩnh Vực</Link>
+                    <Link to="/app"><i className="fa-solid fa-house"></i>Danh sách Lĩnh Vực</Link>
                 </div>
                 <div className="nav_right__control--item">
-                    <Link to="/private"><i className="fa-solid fa-floppy-disk"></i>Trang cá nhân</Link>
+                    <Link to="/app/private"><i className="fa-solid fa-box-archive"></i>Trang cá nhân</Link>
                 </div>
-                <div className="nav_right__control--item nav_right__control--disable">
-                    <i className="fa-solid fa-bookmark"></i>Quan Tâm
+                <div className="nav_right__control--item">
+                    <Link to="/app/save"><i className="fa-solid fa-floppy-disk"></i>Tài Liệu Đã Lưu</Link>
                 </div>
                 {tagSubject}
             </div>

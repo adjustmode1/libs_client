@@ -10,9 +10,9 @@ const BlogtTag = (props) => {
             </div>
             <div className="description">
             <h1>{props.title_subject}</h1>
-            <Link to={`/lecture/${props.id_lecture}`}><h2>{props.name_lecture}</h2></Link>
+            <Link to={`/app/lecture/${props.id_lecture}`}><h2>{props.name_lecture}</h2></Link>
             <p className="read-more">
-                <Link to={`/subject/${props.id_subject}`} >Read More</Link>
+                <Link to={`/app/subject/${props.id_subject}`} >Read More</Link>
             </p>
             </div>
         </div>
