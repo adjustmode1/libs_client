@@ -17,13 +17,14 @@ const Login = (props) => {
   let [error,setError] = useState(false);
   let [note,setNote] = useState('Sai tài khoản hoặc mật khẩu');
   let dispath = useDispatch();
-  const [cookie,setCookie] = useCookies(['token_libs']);
+  const [cookie,setCookie,deleteToken] = useCookies(['token_libs']);
   const signin = (e)=>{
     e.preventDefault();
     axios.post('/login',{username,password})
     .then(res=>{
       if(res.status===200){
         console.log(res.data.token)
+        deleteToken('token_libs');
         setCookie('token_libs',res.data.token);
         dispath(actions_info.setInfoInit(res.data.data));
         setError(false);

@@ -3,7 +3,17 @@ import { Button, Dropdown, Image, Modal, Nav, Navbar } from 'react-bootstrap';
 import { Link, Outlet } from 'react-router-dom';
 import './index.scss';
 import SideBar from '../../components/sidebar/sidebar';
+import { useCookies } from 'react-cookie';
+import * as actions from '../../actions/nav';
+import * as login_actions from '../../actions/login';
+import { useDispatch } from 'react-redux';
 const Index = () => {
+  const [token,setToken,deleteToken] = useCookies(['token_libs']);
+  const dispath = useDispatch();
+  const logout = ()=>{
+    deleteToken('token_libs_admin');
+    dispath(login_actions.signout())
+}
   return (
     <div>
     {/* Page Wrapper */}
@@ -28,7 +38,9 @@ const Index = () => {
                   <span className="mr-2 d-none d-lg-inline text-gray-600 small">Ly</span>
                   <Image className="rounded-circle" src={process.env.PUBLIC_URL+"/avt.png"} alt="..." width={50} height={50}/>
                 </div>
-                <Link to="/admin">
+                <Link to="/loginadmin" onClick={()=>{
+                  logout()
+                }}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout
                 </Link>
